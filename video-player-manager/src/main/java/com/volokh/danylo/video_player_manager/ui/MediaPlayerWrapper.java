@@ -505,6 +505,10 @@ public abstract class MediaPlayerWrapper
         mMediaPlayer.setVolume(leftVolume, rightVolume);
     }
 
+    public MediaPlayer getMediaPlayer() {
+        return mMediaPlayer;
+    }
+    
     public int getVideoWidth() {
         return mMediaPlayer.getVideoWidth();
     }
