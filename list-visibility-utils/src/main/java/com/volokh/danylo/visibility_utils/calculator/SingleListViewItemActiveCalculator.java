@@ -185,12 +185,10 @@ public class SingleListViewItemActiveCalculator extends BaseItemsVisibilityCalcu
 
         if(mostVisibleItem.isMostVisibleItemChanged()){
             if(SHOW_LOGS) Logger.v(TAG, "topToBottomMostVisibleItem, item changed");
-
-            setCurrentItem(mostVisibleItem);
         } else {
             if(SHOW_LOGS) Logger.v(TAG, "topToBottomMostVisibleItem, item not changed");
-
         }
+        setCurrentItem(mostVisibleItem);
     }
 
     private void topToBottomMostVisibleItem(ItemsPositionGetter itemsPositionGetter, int maxVisibilityPercents, ListItemData outMostVisibleItem) {
