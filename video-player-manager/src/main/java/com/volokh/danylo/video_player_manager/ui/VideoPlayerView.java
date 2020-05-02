@@ -249,6 +249,10 @@ public class VideoPlayerView extends ScalableTextureView
         mLocalSurfaceTextureListener = listener;
     }
 
+    public MediaPlayerWrapper getMediaPlayerWrapper() {
+        return mMediaPlayer;
+    }
+    
     public void setDataSource(String path) {
         checkThread();
         synchronized (mReadyForPlaybackIndicator) {
