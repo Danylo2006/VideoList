@@ -37,6 +37,8 @@ public class VideoRecyclerViewFragment extends Fragment {
 
     private final ArrayList<BaseVideoItem> mList = new ArrayList<>();
 
+    private VideoRecyclerViewAdapter videoRecyclerViewAdapter;
+
     /**
      * Only the one (most visible) view should be active (and playing).
      * To calculate visibility of views we use {@link SingleListViewItemActiveCalculator}
@@ -99,7 +101,7 @@ public class VideoRecyclerViewFragment extends Fragment {
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        VideoRecyclerViewAdapter videoRecyclerViewAdapter = new VideoRecyclerViewAdapter(mVideoPlayerManager, getActivity(), mList);
+        videoRecyclerViewAdapter = new VideoRecyclerViewAdapter(mVideoPlayerManager, getActivity(), mList);
 
         mRecyclerView.setAdapter(videoRecyclerViewAdapter);
         mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -135,6 +137,7 @@ public class VideoRecyclerViewFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        videoRecyclerViewAdapter.notifyDataSetChanged();
         if(!mList.isEmpty()){
             // need to call this method from list view handler in order to have filled list
 
